@@ -1,47 +1,54 @@
 {
-    "name": "priti/rental-commerce",
-    "description": "The Laravel Lumen Framework.",
-    "keywords": ["framework", "laravel", "lumen"],
+    "name": "beyondcode/my-package",
+    "description": "My awesome package",
+    "keywords": [
+        "beyondcode",
+        "my-package"
+    ],
+    "homepage": "https://github.com/beyondcode/my-package",
     "license": "MIT",
-    "type": "project",
-    "authors":[
+    "type": "library",
+    "authors": [
         {
-            "name":"priti thakur",
-            "email":"thakurpriti154@gmail.com"
+            "name": "Priti thakur",
+            "email": "thakurpriti154@gmail.com",
+            "role": "Developer"
         }
     ],
     "require": {
-        "php": "^7.3|^8.0",
-        "laravel/lumen-framework": "^8.3.1"
+        "php": "^7.4|^8.0",
+        "illuminate/support": "^8.0"
     },
     "require-dev": {
-        "fakerphp/faker": "^1.9.1",
-        "mockery/mockery": "^1.3.1",
-        "phpunit/phpunit": "^9.5.10"
+        "orchestra/testbench": "^6.0",
+        "phpunit/phpunit": "^9.0"
     },
     "autoload": {
         "psr-4": {
-            "Priti\\Rental-Commerce\\":"src",
-            "App\\": "app/",
-            "Database\\Factories\\": "database/factories/",
-            "Database\\Seeders\\": "database/seeders/"
+            "Beyondcode\\MyPackage\\": "src"
         }
     },
     "autoload-dev": {
-        "classmap": [
-            "tests/"
-        ]
+        "psr-4": {
+            "Beyondcode\\MyPackage\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
     },
     "config": {
-        "preferred-install": "dist",
-        "sort-packages": true,
-        "optimize-autoloader": true
+        "sort-packages": true
     },
-    "minimum-stability": "dev",
-    "prefer-stable": true,
-    "scripts": {
-        "post-root-package-install": [
-            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
-        ]
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Beyondcode\\MyPackage\\MyPackageServiceProvider"
+            ],
+            "aliases": {
+                "MyPackage": "Beyondcode\\MyPackage\\MyPackageFacade"
+            }
+        }
     }
 }
