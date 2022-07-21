@@ -1,0 +1,54 @@
+{
+    "name": "beyondcode/my-package",
+    "description": "My awesome package",
+    "keywords": [
+        "beyondcode",
+        "my-package"
+    ],
+    "homepage": "https://github.com/beyondcode/my-package",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Priti thakur",
+            "email": "thakurpriti154@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.4|^8.0",
+        "illuminate/support": "^8.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^6.0",
+        "phpunit/phpunit": "^9.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Beyondcode\\MyPackage\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Beyondcode\\MyPackage\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Beyondcode\\MyPackage\\MyPackageServiceProvider"
+            ],
+            "aliases": {
+                "MyPackage": "Beyondcode\\MyPackage\\MyPackageFacade"
+            }
+        }
+    }
+}
